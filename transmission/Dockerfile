@@ -1,6 +1,20 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS transmission
+
+VOLUME /transmission/config
+VOLUME /media
+
+ADD postprocess.sh /transmission/postprocess.sh
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        transmission-daemon \
+        transmission-cli \
+    && rm -rvf /var/lib/apt/lists/*
+
+ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--log-info"]
 
 ##### Filebot Install #####
+FROM transmission AS filebot
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -24,20 +38,3 @@ RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && loca
 ENV LANG en_GB.UTF-8
 ENV LANGUAGE en_GB:en
 ENV LC_ALL en_GB.UTF-8
-
-##### Transmission Install #####
-
-WORKDIR /transmission
-
-VOLUME /transmission/config
-VOLUME /media
-
-ADD postprocess.sh /transmission/postprocess.sh
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        transmission-daemon \
-        transmission-cli \
-    && rm -rvf /var/lib/apt/lists/*
-
-ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--log-info"]

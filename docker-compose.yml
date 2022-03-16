@@ -10,14 +10,17 @@ services:
       - flexget_config:/flexget/config
 
   transmission:
-    build: transmission/
+    build:
+      context: transmission/
+      target: $TRANSMISSION_TARGET
+
     restart: always
     environment:
       TZ: Europe/London
     ports:
-      - '51413:51413'
-      - '51413:51413/udp'
-      - '9091:9091'
+      - '$REMOTE_PORT:$REMOTE_PORT'
+      - '$REMOTE_PORT:$REMOTE_PORT/udp'
+      - '$LOCAL_PORT:$LOCAL_PORT'
     volumes:
       - transmission_config:/transmission/config
       - /mnt/media:/media
@@ -25,4 +28,3 @@ services:
 volumes:
   flexget_config:
   transmission_config:
-

@@ -5,8 +5,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Deploy to remote server
+  deploy-general:
+    name: Deploy general instance to remote server
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,7 +17,50 @@ jobs:
           CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
       - uses: rickselby-web-server/actions/docker-compose-deploy@main
         with:
-          STACK_NAME: plex
+          STACK_NAME: transmission-general
         env:
           DOCKER_HOST: ${{ secrets.HOME_HOST }}
           DOCKER_TLS_VERIFY: 1
+          REMOTE_PORT: 51413
+          LOCAL_PORT: 9091
+          TRANSMISSION_TARGET: filebot
+
+  deploy-racing:
+    name: Deploy racing instance to remote server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: rickselby-web-server/actions/server-certificate@main
+        with:
+          CA: ${{ secrets.HOME_CA }}
+          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
+          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
+      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+        with:
+          STACK_NAME: transmission-racing
+        env:
+          DOCKER_HOST: ${{ secrets.HOME_HOST }}
+          DOCKER_TLS_VERIFY: 1
+          REMOTE_PORT: 51415
+          LOCAL_PORT: 9093
+          TRANSMISSION_TARGET: transmission
+
+  deploy-seeding:
+    name: Deploy seeding instance to remote server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: rickselby-web-server/actions/server-certificate@main
+        with:
+          CA: ${{ secrets.HOME_CA }}
+          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
+          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
+      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+        with:
+          STACK_NAME: transmission-seeding
+        env:
+          DOCKER_HOST: ${{ secrets.HOME_HOST }}
+          DOCKER_TLS_VERIFY: 1
+          REMOTE_PORT: 51416
+          LOCAL_PORT: 9094
+          TRANSMISSION_TARGET: filebot
