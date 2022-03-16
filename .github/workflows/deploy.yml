@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to remote server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: rickselby-web-server/actions/server-certificate@main
+        with:
+          CA: ${{ secrets.HOME_CA }}
+          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
+          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
+      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+        with:
+          STACK_NAME: plex
+        env:
+          DOCKER_HOST: ${{ secrets.HOME_HOST }}
+          DOCKER_TLS_VERIFY: 1

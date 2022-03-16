@@ -1,0 +1,28 @@
+version: '2.4'
+
+services:
+  flexget:
+    build: flexget/
+    restart: always
+    environment:
+      TZ: Europe/London
+    volumes:
+      - flexget_config:/flexget/config
+
+  transmission:
+    build: transmission/
+    restart: always
+    environment:
+      TZ: Europe/London
+    ports:
+      - '51413:51413'
+      - '51413:51413/udp'
+      - '9091:9091'
+    volumes:
+      - transmission_config:/transmission/config
+      - /mnt/media:/media
+
+volumes:
+  flexget_config:
+  transmission_config:
+
