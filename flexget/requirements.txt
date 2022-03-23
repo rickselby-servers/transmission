@@ -58,6 +58,6 @@ typing-extensions==3.10.0.2
 tzlocal==2.1
 urllib3==1.26.7
 webencodings==0.5.1
-Werkzeug==2.0.2
+Werkzeug==2.0.3
 zc.lockfile==2.0
 zxcvbn-python==4.4.24
