@@ -4,6 +4,10 @@ on:
       - main
   workflow_dispatch:
 
+concurrency:
+  group: deployment
+  cancel-in-progress: true
+
 jobs:
   deploy-general:
     name: Deploy general instance to remote server
