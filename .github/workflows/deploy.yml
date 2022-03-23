@@ -25,6 +25,7 @@ jobs:
         env:
           DOCKER_HOST: ${{ secrets.HOME_HOST }}
           DOCKER_TLS_VERIFY: 1
+          FILEBOT_LICENSE: ${{ secrets.FILEBOT_LICENSE }}
           REMOTE_PORT: 51413
           LOCAL_PORT: 9091
           TRANSMISSION_TARGET: filebot
@@ -65,6 +66,7 @@ jobs:
         env:
           DOCKER_HOST: ${{ secrets.HOME_HOST }}
           DOCKER_TLS_VERIFY: 1
+          FILEBOT_LICENSE: ${{ secrets.FILEBOT_LICENSE }}
           REMOTE_PORT: 51416
           LOCAL_PORT: 9094
           TRANSMISSION_TARGET: filebot
