@@ -54,7 +54,7 @@ soupsieve==2.2.1
 SQLAlchemy==1.4.27
 tempora==4.1.2
 transmission-rpc==3.3.0
-typing-extensions==3.10.0.2
+typing-extensions==4.1.1
 tzlocal==2.1
 urllib3==1.26.7
 webencodings==0.5.1
