@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test the images will build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker-compose build flexget
+        env:
+          FILEBOT_LICENSE: 'licence'
+          REMOTE_PORT: 8080
+          LOCAL_PORT: 8080
+          TRANSMISSION_TARGET: filebot
