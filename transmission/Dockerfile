@@ -31,8 +31,8 @@ RUN apt-get update \
 ADD https://get.filebot.net/filebot/FileBot_${FILEBOT_VERSION}/FileBot_${FILEBOT_VERSION}_amd64.deb /filebot.deb
 RUN dpkg -i /filebot.deb \
     && rm /filebot.deb \
-RUN printf "%s" "$FILEBOT_LICENSE" > /filebot/license.psm
-RUN filebot --license /filebot/license.psm
+RUN printf "%s" "$FILEBOT_LICENSE" > /filebot-license.psm
+RUN filebot --license /filebot-license.psm
 
 # Set the locale
 RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
