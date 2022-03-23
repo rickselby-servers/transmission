@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
-    name: Test the images will build
+  test-flexget:
+    name: Test the flexget image will build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
