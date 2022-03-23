@@ -4,3 +4,18 @@ updates:
     directory: /
     schedule:
       interval: weekly
+
+  - package-ecosystem: pip
+    directory: flexget
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: flexget
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directory: transmission
+    schedule:
+      interval: weekly
