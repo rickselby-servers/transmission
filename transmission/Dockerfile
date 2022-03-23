@@ -16,18 +16,19 @@ ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--
 ##### Filebot Install #####
 FROM transmission AS filebot
 
+ENV FILEBOT_VERSION 4.9.6
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libchromaprint-tools \
         libjna-java \
         libmediainfo0v5 \
         locales \
-        openjdk-11-jre \
         p7zip-full \
         unrar \
     && rm -rvf /var/lib/apt/lists/*
 
-ADD https://get.filebot.net/filebot/FileBot_4.9.6/FileBot_4.9.6_amd64.deb /filebot.deb
+ADD https://get.filebot.net/filebot/FileBot_${FILEBOT_VERSION}/FileBot_${FILEBOT_VERSION}_amd64.deb /filebot.deb
 RUN dpkg -i /filebot.deb \
     && rm /filebot.deb
 ADD license.psm /filebot/
@@ -38,3 +39,5 @@ RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && loca
 ENV LANG en_GB.UTF-8
 ENV LANGUAGE en_GB:en
 ENV LC_ALL en_GB.UTF-8
+
+RUN filebot -script fn:sysinfo
