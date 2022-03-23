@@ -19,5 +19,5 @@ jobs:
         env:
           FILEBOT_LICENSE: 'licence'
           REMOTE_PORT: 8080
-          LOCAL_PORT: 8080
+          LOCAL_PORT: 8081
           TRANSMISSION_TARGET: filebot
