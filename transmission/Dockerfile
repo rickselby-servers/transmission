@@ -30,7 +30,7 @@ RUN apt-get update \
 
 ADD https://get.filebot.net/filebot/FileBot_${FILEBOT_VERSION}/FileBot_${FILEBOT_VERSION}_amd64.deb /filebot.deb
 RUN dpkg -i /filebot.deb \
-    && rm /filebot.deb \
+    && rm /filebot.deb
 RUN printf "%s" "$FILEBOT_LICENSE" > /filebot-license.psm
 RUN filebot --license /filebot-license.psm
 
