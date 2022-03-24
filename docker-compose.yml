@@ -15,14 +15,14 @@ services:
       target: $TRANSMISSION_TARGET
       args:
         - FILEBOT_LICENSE=${FILEBOT_LICENSE}
-
     restart: always
     environment:
+      EMAIL: ${FILEBOT_EMAIL}
       TZ: Europe/London
     ports:
-      - '$REMOTE_PORT:$REMOTE_PORT'
-      - '$REMOTE_PORT:$REMOTE_PORT/udp'
-      - '$LOCAL_PORT:$LOCAL_PORT'
+      - '${REMOTE_PORT}:${REMOTE_PORT}'
+      - '${REMOTE_PORT}:${REMOTE_PORT}/udp'
+      - '${LOCAL_PORT}:${LOCAL_PORT}'
     volumes:
       - transmission_config:/transmission/config
       - /mnt/media:/media
