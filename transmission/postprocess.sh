@@ -16,7 +16,7 @@ CONFIG_OUTPUT="/media/plex"
   -non-strict \
   --log-file amc.log \
   --def \
-    gmail=$EMAIL \
+    gmail="$EMAIL" \
     reportError=y \
     clean=y \
     ut_dir="$ARG_PATH" \
