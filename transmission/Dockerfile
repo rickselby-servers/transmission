@@ -32,7 +32,7 @@ ADD https://get.filebot.net/filebot/FileBot_${FILEBOT_VERSION}/FileBot_${FILEBOT
 RUN dpkg -i /filebot.deb \
     && rm /filebot.deb
 ARG FILEBOT_LICENSE
-RUN echo "$FILEBOT_LICENSE" | filebot --license
+RUN if [ -n "$FILEBOT_LICENSE" ]; then echo "$FILEBOT_LICENSE" | filebot --license ; fi
 
 # Set the locale
 RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && locale-gen
