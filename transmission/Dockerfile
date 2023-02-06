@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 AS transmission
+FROM ubuntu:23.04 AS transmission
 
 VOLUME /transmission/config
 VOLUME /media
