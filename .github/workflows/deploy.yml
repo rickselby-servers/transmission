@@ -33,27 +33,27 @@ jobs:
           LOCAL_PORT: 9091
           TRANSMISSION_TARGET: filebot
 
-  deploy-racing:
-    name: Deploy racing instance to remote server
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: rickselby-web-server/actions/server-certificate@main
-        with:
-          CA: ${{ secrets.HOME_CA }}
-          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
-          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
-      - uses: rickselby-web-server/actions/docker-compose-deploy@main
-        with:
-          STACK_NAME: transmission-racing
-        env:
-          DOCKER_HOST: ${{ secrets.HOME_HOST }}
-          DOCKER_TLS_VERIFY: 1
-          FILEBOT_EMAIL: email
-          FILEBOT_LICENSE: license
-          REMOTE_PORT: 51415
-          LOCAL_PORT: 9093
-          TRANSMISSION_TARGET: transmission
+#  deploy-racing:
+#    name: Deploy racing instance to remote server
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: rickselby-web-server/actions/server-certificate@main
+#        with:
+#          CA: ${{ secrets.HOME_CA }}
+#          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
+#          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
+#      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+#        with:
+#          STACK_NAME: transmission-racing
+#        env:
+#          DOCKER_HOST: ${{ secrets.HOME_HOST }}
+#          DOCKER_TLS_VERIFY: 1
+#          FILEBOT_EMAIL: email
+#          FILEBOT_LICENSE: license
+#          REMOTE_PORT: 51415
+#          LOCAL_PORT: 9093
+#          TRANSMISSION_TARGET: transmission
 
   deploy-seeding:
     name: Deploy seeding instance to remote server
