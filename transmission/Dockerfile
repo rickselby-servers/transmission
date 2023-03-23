@@ -16,7 +16,7 @@ ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--
 ##### Filebot Install #####
 FROM transmission AS filebot
 
-ENV FILEBOT_VERSION 4.9.6
+ENV FILEBOT_VERSION 5.0.1
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
