@@ -12,7 +12,7 @@ CONFIG_OUTPUT="/media/plex"
   -script fn:amc \
   --output "$CONFIG_OUTPUT" \
   --action hardlink \
-  --conflict auto \
+  --conflict skip \
   -non-strict \
   --log-file amc.log \
   --def \
