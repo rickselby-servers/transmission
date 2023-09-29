@@ -68,6 +68,7 @@ jobs:
       - uses: rickselby-web-server/actions/docker-compose-deploy@main
         with:
           STACK_NAME: transmission-seeding
+          COMPOSE_FILE_PATH: docker-compose.no-flexget.yml
         env:
           DOCKER_HOST: ${{ secrets.HOME_HOST }}
           DOCKER_TLS_VERIFY: 1
