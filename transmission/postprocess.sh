@@ -14,7 +14,7 @@ CONFIG_OUTPUT="/media/plex"
   --action hardlink \
   --conflict skip \
   -non-strict \
-  --log-file amc.log \
+  --log-file /transmission/config/filebot-amc.log \
   --def \
     gmail="$EMAIL" \
     reportError=y \
