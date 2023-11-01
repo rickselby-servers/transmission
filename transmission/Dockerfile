@@ -3,8 +3,6 @@ FROM ubuntu:20.04 AS transmission
 VOLUME /transmission/config
 VOLUME /media
 
-ADD postprocess.sh /transmission/postprocess.sh
-
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         transmission-daemon \
@@ -15,6 +13,8 @@ ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--
 
 ##### Filebot Install #####
 FROM transmission AS filebot
+
+ADD postprocess.sh /transmission/postprocess.sh
 
 ENV FILEBOT_VERSION 5.1.1
 
