@@ -22,5 +22,4 @@ CONFIG_OUTPUT="/media/plex"
     ut_dir="$ARG_PATH" \
     ut_kind="multi" \
     ut_title="$ARG_NAME" \
-    ut_label="$ARG_LABEL" \
-    seriesFormat="{plex}"
+    ut_label="$ARG_LABEL"
