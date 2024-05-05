@@ -7,6 +7,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         transmission-daemon \
         transmission-cli \
+        ca-certificates \
     && rm -rvf /var/lib/apt/lists/*
 
 ENTRYPOINT ["transmission-daemon", "-g/transmission/config", "--foreground", "--log-info"]
