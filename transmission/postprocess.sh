@@ -22,4 +22,5 @@ CONFIG_OUTPUT="/media/plex"
     ut_dir="$ARG_PATH" \
     ut_kind="multi" \
     ut_title="$ARG_NAME" \
-    ut_label="$ARG_LABEL"
+    ut_label="$ARG_LABEL" \
+    exec="chown -R 1000:1000 {quote folder}"
