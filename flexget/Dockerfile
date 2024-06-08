@@ -1,4 +1,4 @@
-FROM     python:3.12.3-alpine
+FROM     python:3.12.4-alpine
 
 VOLUME   /flexget/config
 WORKDIR  /flexget
