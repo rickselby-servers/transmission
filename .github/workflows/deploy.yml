@@ -77,3 +77,25 @@ jobs:
           REMOTE_PORT: 51416
           LOCAL_PORT: 9094
           TRANSMISSION_TARGET: filebot
+
+  deploy-rick:
+    name: Deploy Rick's instance to remote server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rickselby-web-server/actions/server-certificate@main
+        with:
+          CA: ${{ secrets.HOME_CA }}
+          CLIENT_CERT: ${{ secrets.HOME_CLIENT_CERT }}
+          CLIENT_KEY: ${{ secrets.HOME_CLIENT_KEY }}
+      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+        with:
+          STACK_NAME: transmission-rick
+        env:
+          DOCKER_HOST: ${{ secrets.HOME_HOST }}
+          DOCKER_TLS_VERIFY: 1
+          FILEBOT_EMAIL: ${{ secrets.FILEBOT_EMAIL }}
+          FILEBOT_LICENSE: ${{ secrets.FILEBOT_LICENSE }}
+          REMOTE_PORT: 51413
+          LOCAL_PORT: 9095
+          TRANSMISSION_TARGET: filebot
