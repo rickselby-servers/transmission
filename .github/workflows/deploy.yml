@@ -96,6 +96,6 @@ jobs:
           DOCKER_TLS_VERIFY: 1
           FILEBOT_EMAIL: ${{ secrets.FILEBOT_EMAIL }}
           FILEBOT_LICENSE: ${{ secrets.FILEBOT_LICENSE }}
-          REMOTE_PORT: 51413
+          REMOTE_PORT: 51417
           LOCAL_PORT: 9095
           TRANSMISSION_TARGET: filebot
