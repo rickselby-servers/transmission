@@ -79,7 +79,7 @@ jobs:
           REMOTE_PORT: 51416
           LOCAL_PORT: 9094
           TRANSMISSION_TARGET: filebot
-          CONFIG_OUTPUT: /media/plex
+          CONFIG_OUTPUT: /media/plex/Rick
 
   deploy-rick:
     name: Deploy Rick's instance to remote server
