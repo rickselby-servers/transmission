@@ -12,7 +12,7 @@ ARG_LABEL="N/A"
   -script fn:amc \
   --output "$CONFIG_OUTPUT" \
   --action hardlink \
-  --conflict skip \
+  --conflict auto \
   -non-strict \
   --log-file /transmission/config/filebot-amc.log \
   --def \
