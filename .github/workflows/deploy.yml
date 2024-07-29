@@ -32,6 +32,7 @@ jobs:
           REMOTE_PORT: 51413
           LOCAL_PORT: 9091
           TRANSMISSION_TARGET: filebot
+          CONFIG_OUTPUT: /media/plex
 
   deploy-racing:
     name: Deploy racing instance to remote server
@@ -54,6 +55,7 @@ jobs:
           REMOTE_PORT: 51415
           LOCAL_PORT: 9093
           TRANSMISSION_TARGET: transmission
+          CONFIG_OUTPUT: /media/plex
 
   deploy-seeding:
     name: Deploy seeding instance to remote server
@@ -77,6 +79,7 @@ jobs:
           REMOTE_PORT: 51416
           LOCAL_PORT: 9094
           TRANSMISSION_TARGET: filebot
+          CONFIG_OUTPUT: /media/plex
 
   deploy-rick:
     name: Deploy Rick's instance to remote server
@@ -99,3 +102,4 @@ jobs:
           REMOTE_PORT: 51417
           LOCAL_PORT: 9095
           TRANSMISSION_TARGET: filebot
+          CONFIG_OUTPUT: /media/plex/Rick

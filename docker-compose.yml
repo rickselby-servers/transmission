@@ -19,6 +19,7 @@ services:
     environment:
       EMAIL: ${FILEBOT_EMAIL}
       TZ: Europe/London
+      CONFIG_OUTPUT: $CONFIG_OUTPUT
     ports:
       - '${REMOTE_PORT}:${REMOTE_PORT}'
       - '${REMOTE_PORT}:${REMOTE_PORT}/udp'

@@ -5,8 +5,8 @@ ARG_PATH="$TR_TORRENT_DIR/$TR_TORRENT_NAME"
 ARG_NAME="$TR_TORRENT_NAME"
 ARG_LABEL="N/A"
 
-# Configuration
-CONFIG_OUTPUT="/media/plex"
+# CONFIG_OUTPUT should be set in the environment
+# the other env variables come from transmission
 
 /usr/bin/filebot \
   -script fn:amc \
