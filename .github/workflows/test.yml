@@ -21,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker-compose build flexget
-      - run: docker-compose run --rm flexget flexget --version
+      - run: docker compose build flexget
+      - run: docker compose run --rm flexget flexget --version
 
   test-transmission:
     name: Test the transmission image will build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: docker-compose build transmission
+      - run: docker compose build transmission
