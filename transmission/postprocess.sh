@@ -16,10 +16,10 @@ ARG_LABEL="N/A"
   -non-strict \
   --log-file /transmission/config/filebot-amc.log \
   --def \
-    movieDB=TheMovieDB 
-    seriesDB=TheTVDB
-    animeDB=TheTVDB
-    musicDB=ID3
+    movieDB=TheMovieDB \
+    seriesDB=TheTVDB \
+    animeDB=TheTVDB \
+    musicDB=ID3 \
     gmail="$EMAIL" \
     reportError=y \
     clean=y \
