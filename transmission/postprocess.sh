@@ -27,4 +27,6 @@ ARG_LABEL="N/A"
     ut_kind="multi" \
     ut_title="$ARG_NAME" \
     ut_label="$ARG_LABEL" \
+    minFileSize=0 \
+    minLengthMS=0 \
     exec="chown -R 1000:1000 {quote folder}"
