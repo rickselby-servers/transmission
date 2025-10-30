@@ -11,7 +11,7 @@ ARG_LABEL="N/A"
 /usr/bin/filebot \
   -script fn:amc \
   --output "$CONFIG_OUTPUT" \
-  --action hardlink \
+  --action duplicate \
   --conflict auto \
   -non-strict \
   --log-file /transmission/config/filebot-amc.log \
