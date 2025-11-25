@@ -15,7 +15,7 @@ jobs:
     name: Deploy general instance to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.HOME_CA }}
@@ -38,7 +38,7 @@ jobs:
     name: Deploy racing instance to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.HOME_CA }}
@@ -61,7 +61,7 @@ jobs:
     name: Deploy seeding instance to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.HOME_CA }}
@@ -84,7 +84,7 @@ jobs:
     name: Deploy Rick's instance to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.HOME_CA }}

@@ -20,7 +20,7 @@ jobs:
     name: Test the flexget image will build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: docker compose build flexget
       - run: docker compose run --rm flexget flexget --version
 
@@ -28,5 +28,5 @@ jobs:
     name: Test the transmission image will build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - run: docker compose build transmission
