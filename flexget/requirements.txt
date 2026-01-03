@@ -1,2 +1,2 @@
-FlexGet==3.18.32
+FlexGet==3.18.34
 transmission-rpc==7.0.11
